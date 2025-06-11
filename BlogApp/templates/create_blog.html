@@ -1,0 +1,113 @@
+{% extends  'base.html'%}
+
+{% block title %} Create Blog{% endblock %}
+
+
+{% block style %}
+<style>
+
+    .form-group {
+        margin-bottom: 20px;
+
+    }
+
+    .wrap{
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    gap:70px;
+    padding-top: 100px ;
+    }
+
+    form{
+    justify-content:center;
+    width:30rem;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    border: 0.5px solid gray ;
+    padding:15px;
+    border-radius:15px ;
+    }
+
+    .your-input-class,
+    .your-textarea-class,
+    .your-file-input-class {
+        width: 100%;
+        padding: 10px;
+        padding-block: 20px ;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+    }
+
+    .your-button-class {
+        padding: 10px 20px;
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .your-button-class:hover {
+        background-color: deepskyblue;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+
+    #link{
+    background-color: dodgerblue ;
+    text-decoration:none;
+    color:aliceblue;
+    padding:10px;
+    border-radius: 10px;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="wrap">
+
+<h1>{{heading}}</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="id_name">Title:</label>
+        <input type="text" name="name" id="id_name" value="{{ form.name.value }}" class="your-input-class">
+        {% if form.name.errors %}
+            <p class="error">{{ form.name.errors }}</p>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_description">Description:</label>
+        <textarea name="description" id="id_description" class="your-textarea-class">{{ form.description.value }}</textarea>
+        {% if form.description.errors %}
+            <p class="error">{{ form.description.errors }}</p>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_image">Image:</label>
+        <input type="file" name="image" id="id_image" class="your-file-input-class">
+        {% if form.image.errors %}
+            <p class="error">{{ form.image.errors }}</p>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="your-button-class">{{button}}</button>
+</form>
+    </div>
+
+
+
+{% endblock %}

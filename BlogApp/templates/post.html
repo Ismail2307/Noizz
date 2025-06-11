@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+Post - {{post.title}}
+
+
+
+{% block style %}
+<style>
+.post-info{
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+gap:140px;
+background-color:rgb(31, 31, 31);
+margin:20px;
+border-radius:20px;
+padding-block:20px;
+}
+
+ .post-main{
+ display:flex;
+ flex-direction:column;
+ gap:20px;
+ font-size:20px;
+
+ }
+
+  .link{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  }
+
+    .link a{
+    text-decoration:none;
+    color:aliceblue;
+    padding:5px;
+    border-radius:7px;
+    background-color:rgb(67, 121, 255);
+    }
+
+    .main{
+    margin:20px;
+    margin-top:30px;
+    padding:40px;
+    width:96rem;
+    background-color:rgb(31, 31, 31);
+    border-radius:7px;
+    }
+
+    .main h3{
+    line-height:34px;
+    font-size:24px;
+    font-weight:italic;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="post-info">
+    <div class="post-img">
+        <img src="{{post.image.url}}" alt="post-image">
+    </div>
+    <div class="post-main">
+        <h1>{{post.title}}</h1>
+        <h3>Blog: {{post.blog}}</h3>
+        <h3>Published at: {{post.date}}</h3>
+        <h3>Creator: {{blog.owner}}</h3>
+    </div>
+    <div class="link">
+        <a href="{% url 'edit_post' blog=blog.id post_id=post.id %}">Edit Post</a>
+        <a href="{% url 'delete_post' blog=blog.id post_id=post.id %}">Delete Post</a>
+    </div>
+</div>
+
+<div class="main">
+    <h3>{{post.content|linebreaksbr}}</h3>
+</div>
+
+{%endblock%}

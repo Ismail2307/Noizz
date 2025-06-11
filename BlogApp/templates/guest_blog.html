@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Blog - {{blog.name}}
+{% endblock %}
+
+{% block style %}
+<style>
+
+    .blog-info{
+    margin-inline:90px;
+    background-color:rgb(31, 31, 31);
+    display:flex;
+    flex-direction:row;
+    gap:180px;
+    padding-block: 100px ;
+    border-radius: 20px ;
+    align-items:flex-start;
+    }
+
+
+
+    .blog-info a{
+    text-decoration:none;
+    color:aliceblue;
+
+    }
+
+    .blog-img img{
+    width:250px;
+    height:250px;
+    border-radius: 25px ;
+    display: block;
+    background-color: black;
+    }
+    .blog-img{
+      background: conic-gradient(
+        #00bfff,  /* Deep Sky Blue */
+        #1e90ff,  /* Dodger Blue */
+        #4169e1,  /* Royal Blue */
+        #00008b   /* Dark Blue */
+    );
+    padding: 4px; /* Border thickness */
+    border-radius: 25px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
+    margin-left: 150px ;
+    }
+
+    .blog-main{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    max-width:300px;
+
+    }
+
+    .blog-main h1{
+    font-size: 60px ;
+    }
+
+    .blog-main h3{
+    font-size:20px;
+     white-space: normal;
+  word-break: break-word;
+    }
+
+
+
+    .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card img{
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+#headin-main{
+    margin-left: 90px;
+    font-size: 60px;
+}
+
+.card-container {
+    margin-top: 40px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+        align-items: flex-start;
+     text-align: left;
+    width: 100%;
+    margin-left:30px;
+ }
+
+ .card-info h1,
+.card-info h3,
+.card-info small {
+    text-align: left;
+}
+
+
+.small-info{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px
+    }
+
+        .owner img{
+    width:30px;
+    height:30px;
+    border-radius:10px;
+    }
+
+    .owner{
+    justify-content:center;
+    display:flex;
+    gap:10px;
+    }
+
+    .owner a{
+    color:rgb(153, 204, 255);
+    font-weight:bold;
+    }
+
+    .small-info a{
+background-color:rgb(67, 121, 255);
+text-decoration:none;
+color:aliceblue;
+padding:5px;
+border-radius:5px;
+}
+</style>
+
+{%endblock%}
+
+
+{% block content %}
+<div class="blog-info">
+    <div class="blog-img">
+
+        <img src="{{blog.image.url}}" alt="blog-image">
+    </div>
+    <div class="blog-main">
+        <h1>{{blog.name}}</h1>
+        <h3>{{blog.description}}</h3>
+        <div class="owner">
+                    <h3>Owner: </h3>
+                     <img src="{{blog.owner.avatar.url}}" alt="owner av">
+                     <a href="{% url 'guest_profile' blog.owner.id %}">{{blog.owner}}</a>
+                 </div>
+    </div>
+</div>
+
+<div class="posts">
+    <div class="card-container">
+  {% for post in posts %}
+
+     <div class="card">
+         <div>
+         <img src="{{ post.image.url }}" alt="post_img">
+             </div>
+         <div class="card-info">
+             <h1>{{post.title|truncatechars:30}}</h1>
+             <h3>{{post.content|truncatechars:50}}</h3>
+             <div class="small-info">
+                 <small>{{post.date}}</small>
+                 <a href="{% url 'guest_post' blog_id=blog.id blog_name=blog.name post_id=post.id %}">Read Post</a>
+             </div>
+         </div>
+    </div>
+    {%endfor%}
+</div>
+</div>
+{% endblock %}

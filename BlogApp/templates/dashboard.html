@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Dashboard {% endblock %}
+
+{% block style %}
+<style>
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card img{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#headin-main{
+    margin-left: 90px;
+    font-size: 60px;
+}
+
+.card-container {
+    margin-top: 40px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.small-info{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+
+
+    .owner img{
+    width:30px;
+    height:30px;
+    }
+
+    .owner{
+    justify-content:center;
+    display:flex;
+    gap:10px;
+    }
+
+    .owner a{
+    color:rgb(153, 204, 255);
+    font-weight:bold;
+    }
+
+</style>
+{%endblock%}
+
+
+{%block content%}
+   <h1 id="headin-main">See latest blogs!</h1>
+<div class="card-container">
+  {% for blog in blogs %}
+
+     <div class="card" data-url="{% url 'guest_blog' nickname=blog.owner.nickname blog_id=blog.id %}">
+         <img src="{{ blog.image.url }}" alt="blog_img">
+         <div class="card-info">
+             <h1>{{blog.name|truncatechars:30}}</h1>
+             <h3>{{blog.description|truncatechars:50}}</h3>
+             <div class="small-info">
+                 <div class="owner">
+                     <img src="{{blog.owner.avatar.url}}" alt="owner av">
+                     <a href="{% url 'guest_profile' blog.owner.id %}">{{blog.owner}}</a>
+                 </div>
+                 <small>{{blog.created_at}}</small>
+             </div>
+         </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+<script>
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        window.location.href = card.dataset.url;
+    });
+});
+
+</script>
+{%endblock%}

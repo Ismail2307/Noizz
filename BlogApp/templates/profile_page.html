@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+
+
+{%block title%}
+Profile({{profile.user.username}})
+{%endblock %}
+
+
+{%block style%}
+<style>
+
+    .profile-info{
+    margin-inline:90px;
+    background-color:rgb(31, 31, 31);
+    display:flex;
+    flex-direction:row;
+    gap:180px;
+    padding-block: 100px ;
+    border-radius: 20px ;
+    }
+
+
+    .link{
+     padding-inline:40px;
+    padding-block:5px;
+    border-radius:15px;
+    background-color:rgb(27, 117, 247);
+    margin-bottom:200px;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    }
+
+    .profile-info a{
+    text-decoration:none;
+    color:aliceblue;
+    }
+
+    .profile-img img{
+    width:250px;
+    height:250px;
+    border-radius: 50% ;
+    display: block;
+    background-color: black;
+    }
+    .profile-img{
+      background: conic-gradient(
+        #00bfff,  /* Deep Sky Blue */
+        #1e90ff,  /* Dodger Blue */
+        #4169e1,  /* Royal Blue */
+        #00008b   /* Dark Blue */
+    );
+    padding: 4px; /* Border thickness */
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
+    margin-left: 150px ;
+    }
+
+    .profile-main{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    max-width:300px;
+    }
+
+    .profile-main h1{
+    font-size: 60px ;
+    }
+
+    .profile-main h3{
+    font-size:20px;
+    }
+
+
+
+    .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card img{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#headin-main{
+    margin-left: 90px;
+    font-size: 60px;
+}
+
+.card-container {
+    margin-top: 40px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.small-info{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px
+    }
+</style>
+{%endblock%}
+
+
+
+
+{%block content%}
+<div class="profile-info">
+    <div class="profile-img">
+        <img src="{{profile.avatar.url}}" alt="profile-image">
+    </div>
+    <div class="profile-main">
+        <h1>{{profile.nickname}}</h1>
+        <h3>{{profile.bio}}</h3>
+    </div>
+    <div class="link">
+    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+        </div>
+</div>
+
+<div class="blogs">
+    <div class="card-container">
+  {% for blog in blogs %}
+
+     <div class="card" data-url = "{% url 'blog' blog.id %}">
+         <img src="{{ blog.image.url }}" alt="blog_img">
+         <div class="card-info">
+             <h1>{{blog.name|truncatechars:30}}</h1>
+             <h3>{{blog.description|truncatechars:50}}</h3>
+             <div class="small-info">
+                 <small>{{blog.created_at}}</small>
+             </div>
+         </div>
+    </div>
+    {%endfor%}
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        window.location.href = card.dataset.url;
+    });
+});
+
+</script>
+
+{%endblock%}

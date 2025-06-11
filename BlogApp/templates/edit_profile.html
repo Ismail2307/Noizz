@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Profile Page
+{%endblock%}
+
+
+{% block style %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #black;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+    }
+
+    form {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 400px;
+        color:black;
+    }
+
+    form p {
+        margin: 0;
+    }
+
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+
+{%endblock%}
+
+
+{% block content %}
+<div class="cont">
+<form method="post" enctype="multipart/form-data">
+    {{form.as_p}}
+    {% csrf_token %}
+
+    <button type="submit">Save Changes</button>
+</form>
+    </div>
+{% endblock %}
