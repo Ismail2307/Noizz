@@ -6,56 +6,7 @@ Post - {{post.title}}
 
 
 {% block style %}
-<style>
-.post-info{
-display:flex;
-flex-direction:row;
-justify-content:center;
-align-items:center;
-gap:140px;
-background-color:rgb(31, 31, 31);
-margin:20px;
-border-radius:20px;
-padding-block:20px;
-}
-
- .post-main{
- display:flex;
- flex-direction:column;
- gap:20px;
- font-size:20px;
-
- }
-
-  .link{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  }
-
-    .link a{
-    text-decoration:none;
-    color:aliceblue;
-    padding:5px;
-    border-radius:7px;
-    background-color:rgb(67, 121, 255);
-    }
-
-    .main{
-    margin:20px;
-    margin-top:30px;
-    padding:40px;
-    width:96rem;
-    background-color:rgb(31, 31, 31);
-    border-radius:7px;
-    }
-
-    .main h3{
-    line-height:34px;
-    font-size:24px;
-    font-weight:italic;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'BlogApp/post.css' %}">
 {% endblock %}
 
 

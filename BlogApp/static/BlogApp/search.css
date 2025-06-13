@@ -1,0 +1,249 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card img{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#headin-main{
+    margin-left: 90px;
+    font-size: 60px;
+}
+
+.card-container {
+    margin-top: 40px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.small-info{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+
+
+    .owner img{
+    width:30px;
+    height:30px;
+    }
+
+    .owner{
+    justify-content:center;
+    display:flex;
+    gap:10px;
+    }
+
+    .owner a{
+    color:rgb(153, 204, 255);
+    font-weight:bold;
+    }
+
+
+<!--    posts-->
+    .card-post {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card-post img{
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+
+        .card-post {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 20px;
+    background-color: rgb(31, 31, 31);
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+    border-radius: 10px;
+    width: 100%; /* fills the column */
+    box-sizing: border-box;
+}
+
+
+.card-post img{
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+#headin-main{
+    margin-left: 90px;
+    font-size: 60px;
+}
+
+.card-container-post {
+    margin-top: 40px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-info-post{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+        align-items: flex-start;
+     text-align: left;
+    width: 100%;
+    margin-left:30px;
+ }
+
+ .card-info-post h1,
+.card-info h3,
+.card-info small {
+    text-align: left;
+}
+
+
+.small-info-post{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px
+    }
+
+        .owner img{
+    width:30px;
+    height:30px;
+    border-radius:10px;
+    }
+
+    .owner{
+    justify-content:center;
+    display:flex;
+    gap:10px;
+    }
+
+    .owner a{
+    color:rgb(153, 204, 255);
+    font-weight:bold;
+    }
+
+    .small-info-post a{
+background-color:rgb(67, 121, 255);
+text-decoration:none;
+color:aliceblue;
+padding:5px;
+border-radius:5px;
+}
+
+  .formik{
+    display:flex;
+    flex-direction:row;
+    gap:40px;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:40px;
+    background-color:rgb(31,31,31);
+    margin-inline:100px;
+    padding:20px;
+    border-radius:5px;
+    }
+
+    .formik input{
+    padding-block: 15px;
+    padding-inline:70px;
+    font-size:19px;
+    border-radius:7px;
+    color:aliceblue;
+    background-color:rgb(56, 58, 62);
+    border: 1px solid black;
+    }
+.formik label{
+display:flex;
+flex-direction:row;
+gap:10px ;
+font-size:17px;
+}
+
+    .formik button{
+    padding-inline:40px;
+    padding-block:10px;
+    font-size:17px;
+    background-color:rgb(74, 125, 251 ) ;
+    border-radius:7px;
+    color:aliceblue;
+    }
+
+    .profik{
+    margin:90px;
+    background-color:rgb(31,31,31);
+    padding:30px;
+    border-radius:7px;
+     display:flex;
+    flex-direction:column;
+    gap: 30px;
+
+    }
+
+    .prof-info{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:80px;
+    }
+
+    .prof-info a{
+    font-size:40px;
+    font-weight:bold;
+    color:rgb(153, 204, 255);
+    }
+
+    .prof-info img{
+    width:250px;
+    height:250px;
+    border-radius:10px;
+    }
+
+    hr{
+    margin-block:20px;
+    opacity:20%;
+    }
+
+
+

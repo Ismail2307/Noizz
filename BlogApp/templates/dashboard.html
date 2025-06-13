@@ -4,74 +4,7 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block style %}
-<style>
-.card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-inline: 20px;
-    background-color: rgb(31, 31, 31);
-    justify-content: center;
-    align-items: center;
-    padding-block: 30px;
-    border-radius: 10px;
-    width: 100%; /* fills the column */
-    box-sizing: border-box;
-}
-
-
-.card img{
-    height: 300px;
-    width: 300px;
-    border-radius: 10px;
-}
-
-#headin-main{
-    margin-left: 90px;
-    font-size: 60px;
-}
-
-.card-container {
-    margin-top: 40px ;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-    gap: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.card-info{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.small-info{
-    margin-top: 25px;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-
-
-    .owner img{
-    width:30px;
-    height:30px;
-    }
-
-    .owner{
-    justify-content:center;
-    display:flex;
-    gap:10px;
-    }
-
-    .owner a{
-    color:rgb(153, 204, 255);
-    font-weight:bold;
-    }
-
-</style>
+<link rel="stylesheet" href="{% static 'BlogApp/dashboard.css' %}">
 {%endblock%}
 
 

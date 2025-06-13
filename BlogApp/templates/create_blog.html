@@ -4,70 +4,7 @@
 
 
 {% block style %}
-<style>
-
-    .form-group {
-        margin-bottom: 20px;
-
-    }
-
-    .wrap{
-    justify-content:center;
-    align-items:center;
-    display:flex;
-    flex-direction:column;
-    gap:70px;
-    padding-top: 100px ;
-    }
-
-    form{
-    justify-content:center;
-    width:30rem;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    border: 0.5px solid gray ;
-    padding:15px;
-    border-radius:15px ;
-    }
-
-    .your-input-class,
-    .your-textarea-class,
-    .your-file-input-class {
-        width: 100%;
-        padding: 10px;
-        padding-block: 20px ;
-        border: 1px solid #ccc;
-        border-radius: 15px;
-    }
-
-    .your-button-class {
-        padding: 10px 20px;
-        background-color: dodgerblue;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .your-button-class:hover {
-        background-color: deepskyblue;
-    }
-
-    .error {
-        color: red;
-        font-size: 14px;
-    }
-
-    #link{
-    background-color: dodgerblue ;
-    text-decoration:none;
-    color:aliceblue;
-    padding:10px;
-    border-radius: 10px;
-    }
-</style>
-
+<link rel="stylesheet" href="{% static 'BlogApp/create_blog.css' %}">
 {% endblock %}
 
 

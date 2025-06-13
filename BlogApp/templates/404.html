@@ -3,37 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Not Found (Error)</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'BlogApp/404.css' %}">
 </head>
-<style>
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    }
 
-    body{
-    background-color:rgb(0, 20, 41);
-    color:aliceblue;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    flex-direction:column;
-    padding-top:200px;
-    }
-
-    a{
-    background-color:rgb(195, 20, 41);
-    padding:10px;
-    padding-inline:20px;
-    border-radius:10px;
-    color:aliceblue;
-    text-decoration:none;
-    font-size:15px;
-    }
-
-</style>
 <body>
     <h1 id="404">404 - Page Not Found</h1>
     <h1>Oops! The page you're looking for doesn't exist!</h1>

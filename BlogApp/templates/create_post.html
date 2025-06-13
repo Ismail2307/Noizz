@@ -5,72 +5,7 @@
 {% block title %}Create Post{% endblock %}
 
 {% block style %}
-<style>
-    body {
-        background-color: #000;
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        max-width: 800px;
-        margin-top:20px;
-        margin-left:40px;
-        background-color: #111;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #00aaff;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    input[type="text"],
-    textarea,
-    select,
-    input[type="file"] {
-        width: 100%;
-        padding: 10px;
-        border-radius: 8px;
-        border: 1px solid #444;
-        background-color: #222;
-        color: white;
-        padding-block:30px;
-        font-size:20px;
-    }
-
-    input[type="text"]:focus,
-    textarea:focus {
-        border-color: #00aaff;
-        outline: none;
-    }
-
-    button {
-        padding: 12px;
-        background-color: #00aaff;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #0088cc;
-    }
-
-</style>
+<link rel="stylesheet" href="{% static 'BlogApp/create_post.css' %}">
 {% endblock %}
 
 {% block content %}
