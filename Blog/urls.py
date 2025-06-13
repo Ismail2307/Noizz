@@ -18,11 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BlogApp.urls')),
     path('accounts/', include('allauth.urls')),
+    path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'BlogApp.views.custom_404'
