@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ismail2307/Noizz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ismail2307/Noizz/issues"
+  },
+  "homepage": "https://github.com/Ismail2307/Noizz#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.10"
+  }
+}
